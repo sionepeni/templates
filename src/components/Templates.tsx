@@ -2,15 +2,17 @@ import { BasicForm, Text } from "../types/Types"
 import '../app.css'
 
 export const ContentWrapper = ({ text }: Text) => {
+
+    const handleClick = (text: string) => {
+        navigator.clipboard.writeText(text), window.alert("Copied")
+    }
+
     return (
         <>
             {/* <div className="msg-wrapper">
             {text}
         </div> */}
-            <button
-                className="button"
-                onClick={() => navigator.clipboard.writeText(text)}
-            >
+            <button className="button" onClick={() => handleClick(text)}>
                 Copy
             </button>
         </>
