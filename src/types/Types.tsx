@@ -9,3 +9,7 @@ export type BasicForm = {
     mobile: string,
     switch: string,
 }
+
+export type Text = {
+    text: string
+}
