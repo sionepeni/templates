@@ -4,9 +4,9 @@ import '../app.css'
 export const ContentWrapper = ({ text }: Text) => {
     return (
         <>
-            <div className="msg-wrapper">
+            {/* <div className="msg-wrapper">
             {text}
-        </div>
+        </div> */}
             <button
                 className="button"
                 onClick={() => navigator.clipboard.writeText(text)}
