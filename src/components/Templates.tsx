@@ -15,7 +15,13 @@ OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
 - Collected old laptop: ${userForm.oldDevice}
 - Updated the Serial Number Asset Management (SNAM) database accordingly
 - All necessary configurations completed, the task is now considered closed`
-    return <>{text}</>
+    return (
+        <>
+            <div className="msg-wrapper">
+            {text}
+        </div>
+        </>
+    )
 }
 
 export const PhoneReplacementSummary = (userForm: BasicForm) => {
@@ -30,7 +36,13 @@ OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
 - Collected old phone & removed from UEM: ${userForm.oldDevice}
 - Updated the Serial Number Asset Management (SNAM) database accordingly
 - All necessary configurations completed, the task is now considered closed`
-    return <>{text}</>
+        return (
+        <>
+            <div className="msg-wrapper">
+            {text}
+        </div>
+        </>
+    )
 }
 
 export const OutOfLifeCycle = (userForm: BasicForm) => {
@@ -56,7 +68,11 @@ I will attempt to contact you again over the next two to three working days. I l
 
 Thank you.`
 
-    return <>{text}</>
+    return (
+        <>
+            <div className="msg-wrapper">{text}</div>
+        </>
+    )
 }
 
 export const DeviceUpgrade = (userForm: BasicForm) => {
@@ -76,7 +92,11 @@ I will attempt to contact you again over the next two to three working days. I l
 
 Thank you.`
 
-    return <>{text}</>
+    return (
+        <>
+            <div className="msg-wrapper">{text}</div>
+        </>
+    )
 }
 
 export const Leaver = (userForm: BasicForm) => {
@@ -96,5 +116,9 @@ Should you have any inquiries or concerns regarding this matter, please do not h
 
 Thank you for your attention to this issue.`
 
-    return <>{text}</>
+    return (
+        <>
+            <div className="msg-wrapper">{text}</div>
+        </>
+    )
 }
