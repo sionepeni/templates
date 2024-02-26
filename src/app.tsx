@@ -7,7 +7,7 @@ import { JSX } from 'preact/jsx-runtime';
 
 export function App() {
     const [formSelected, setFormSelected] = useState("")
-    const [buttonIndex, setButtonIndex] = useState()
+    const [buttonIndex, setButtonIndex] = useState<string>('')
     const [userForm, setUserForm] = useState<BasicForm>({
         name: "",
         ticket: "RITM000111",
@@ -106,7 +106,7 @@ export function App() {
                             id={text.id}
                             value={text.index}
                             className={
-                                buttonIndex === text.index
+                                parseInt(buttonIndex) === text.index
                                     ? "selectedButton"
                                     : "buttons"
                             }
