@@ -1,7 +1,7 @@
-import { EmailForm } from "../../types/Types"
+import { DetailForm } from "../../types/Types"
 import { ContentWrapper } from "../ContentWrapper"
 
-export const OutOfLifeCycle = (userForm: EmailForm) => {
+export const OutOfLifeCycle = (userForm: DetailForm) => {
     let text = `${userForm.ticket} - Device Upgrade Required for ${userForm.oldDevice}
 
 Kia Ora ${userForm.user},
@@ -29,7 +29,7 @@ Thank you.`
     )
 }
 
-export const DeviceUpgrade = (userForm: EmailForm) => {
+export const DeviceUpgrade = (userForm: DetailForm) => {
     let text = `${userForm.ticket} - New, replacement or upgraded ${userForm.switch}
 
 Kia Ora ${userForm.user},
@@ -51,7 +51,7 @@ Thank you.`
     )
 }
 
-export const Leaver = (userForm: EmailForm) => {
+export const Leaver = (userForm: DetailForm) => {
     let text = `${userForm.ticket} - ${userForm.user} - Computer and Phone Equipment
 
 Kia Ora ${userForm.supervisor},

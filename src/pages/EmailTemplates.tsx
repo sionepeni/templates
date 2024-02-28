@@ -19,20 +19,11 @@ export function EmailTemplates() {
         newDevice: "New Device",
     })
 
-    const handlePhoneOrLaptop = (
-        event: JSX.TargetedEvent<HTMLInputElement, Event>
-    ) => {
-        if (event.currentTarget.checked === true)
-            return setUserForm({ ...userForm, switch: "Phone" })
-        return setUserForm({ ...userForm, switch: "Laptop" })
-    }
-
     const handleButtonClick = (
         event: JSX.TargetedEvent<HTMLButtonElement, Event>
     ) => {
         setFormSelected(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
     }
-    console.log(userForm)
 
     return (
         <>
@@ -50,7 +41,13 @@ export function EmailTemplates() {
                                             HTMLInputElement,
                                             Event
                                         >
-                                    ) => handleFormDetails(event, userForm, setUserForm)}
+                                    ) =>
+                                        handleFormDetails(
+                                            event,
+                                            userForm,
+                                            setUserForm
+                                        )
+                                    }
                                     style={{ width: "350px" }}
                                 />
                             </div>
@@ -68,7 +65,13 @@ export function EmailTemplates() {
                                             HTMLInputElement,
                                             Event
                                         >
-                                    ) => handlePhoneOrLaptop(event)}
+                                    ) =>
+                                        handleFormDetails(
+                                            event,
+                                            userForm,
+                                            setUserForm
+                                        )
+                                    }
                                 ></input>
                                 {userForm.switch === "Phone"
                                     ? "Phone"

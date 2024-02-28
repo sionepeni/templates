@@ -1,7 +1,7 @@
-import { TicketForm } from "../../types/Types"
+import { DetailForm } from "../../types/Types"
 import { ContentWrapper } from "../ContentWrapper"
 
-export const LaptopReplacementSummary = (userForm: TicketForm) => {
+export const LaptopReplacementSummary = (userForm: DetailForm) => {
     let text = `- Laptop Replacement Summary:
 ===========================================================================
 OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
@@ -21,7 +21,7 @@ OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
     )
 }
 
-export const PhoneReplacementSummary = (userForm: TicketForm) => {
+export const PhoneReplacementSummary = (userForm: DetailForm) => {
     let text = `- Phone Replacement Summary:
 ===========================================================================
 OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
