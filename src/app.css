@@ -15,7 +15,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -74,7 +74,8 @@
   height: 3rem;
   position: fixed;
   bottom: 4rem;
-  width: 100vw;
+  left: 10vw;
+  width: 80vw;
   background-color: darkslategray;
   color: white;
 }

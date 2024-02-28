@@ -1,20 +1,16 @@
-import { BasicForm, Text } from "../types/Types"
-import '../app.css'
+import { BasicForm } from "../types/Types"
+
+type Text = {
+    text: string
+}
 
 export const ContentWrapper = ({ text }: Text) => {
-
-    const handleClick = (text: string) => {
-        navigator.clipboard.writeText(text), window.alert("Copied")
-    }
-
     return (
         <>
             {/* <div className="msg-wrapper">
             {text}
         </div> */}
-            <button className="button" onClick={() => handleClick(text)}>
-                Copy
-            </button>
+            <button className="button" onClick={() => navigator.clipboard.writeText(text)}>Copy</button>
         </>
     )
 }
@@ -51,7 +47,13 @@ OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
 - Collected old phone & removed from UEM: ${userForm.oldDevice}
 - Updated the Serial Number Asset Management (SNAM) database accordingly
 - All necessary configurations completed, the task is now considered closed`
-    return <ContentWrapper text={text} />
+        return (
+        <>
+            <div className="msg-wrapper">
+            {text}
+        </div>
+        </>
+    )
 }
 
 export const OutOfLifeCycle = (userForm: BasicForm) => {
@@ -77,7 +79,11 @@ I will attempt to contact you again over the next two to three working days. I l
 
 Thank you.`
 
-    return <ContentWrapper text={text} />
+    return (
+        <>
+            <div className="msg-wrapper">{text}</div>
+        </>
+    )
 }
 
 export const DeviceUpgrade = (userForm: BasicForm) => {
@@ -97,7 +103,11 @@ I will attempt to contact you again over the next two to three working days. I l
 
 Thank you.`
 
-    return <ContentWrapper text={text} />
+    return (
+        <>
+            <div className="msg-wrapper">{text}</div>
+        </>
+    )
 }
 
 export const Leaver = (userForm: BasicForm) => {
@@ -117,5 +127,9 @@ Should you have any inquiries or concerns regarding this matter, please do not h
 
 Thank you for your attention to this issue.`
 
-    return <ContentWrapper text={text} />
+    return (
+        <>
+            <div className="msg-wrapper">{text}</div>
+        </>
+    )
 }
