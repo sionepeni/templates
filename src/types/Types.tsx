@@ -11,8 +11,6 @@ export type BasicForm = {
 }
 
 export type TicketForm = {
-    user: string,
-    ticket: string,
     oldDevice: string,
     newDevice: string
 }

@@ -1,8 +1,9 @@
 import { useState } from 'preact/hooks';
-import { listForButtons, listForInputs } from "../components/List";
+import { listForEmailButtons, listForEmailInputs } from "../components/List";
 import { EmailForm } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
 import { DeviceUpgrade, Leaver, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
+import { handleFormDetails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
     const [formSelected, setFormSelected] = useState("")
@@ -17,23 +18,6 @@ export function EmailTemplates() {
         switch: "Laptop",
     })
 
-    const handleFormDetails = (
-        event: JSX.TargetedEvent<HTMLInputElement, Event>
-    ) => {
-        if (event.currentTarget.id === "ticket")
-            return setUserForm({ ...userForm, ticket: event.currentTarget.value })
-        if (event.currentTarget.id === "oldDevice")
-            return setUserForm({ ...userForm, oldDevice: event.currentTarget.value })
-        if (event.currentTarget.id === "user")
-            return setUserForm({ ...userForm, user: event.currentTarget.value })
-        if (event.currentTarget.id === "supervisor")
-            return setUserForm({ ...userForm, supervisor: event.currentTarget.value })
-        if (event.currentTarget.id === "laptop")
-            return setUserForm({ ...userForm, laptop: event.currentTarget.value })
-        if (event.currentTarget.id === "mobile")
-            return setUserForm({ ...userForm, mobile: event.currentTarget.value })
-    }
-
     const handlePhoneOrLaptop = (
         event: JSX.TargetedEvent<HTMLInputElement, Event>
     ) => {
@@ -47,12 +31,13 @@ export function EmailTemplates() {
     ) => {
         setFormSelected(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
     }
+    console.log(userForm)
 
     return (
         <>
             <div className="options_container">
                 <div className="input_container">
-                    {listForInputs.map((text) => (
+                    {listForEmailInputs.map((text) => (
                         <>
                             <div className="input_field">
                                 {text.text}:{" "}
@@ -64,7 +49,7 @@ export function EmailTemplates() {
                                             HTMLInputElement,
                                             Event
                                         >
-                                    ) => handleFormDetails(event)}
+                                    ) => handleFormDetails(event, userForm, setUserForm)}
                                     style={{ width: "350px" }}
                                 />
                             </div>
@@ -95,7 +80,7 @@ export function EmailTemplates() {
                 </div>
 
                 <div className="button_container">
-                    {listForButtons.map((text) => (
+                    {listForEmailButtons.map((text) => (
                         <button
                             key={text.index}
                             id={text.id}
