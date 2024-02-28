@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import { listForEmailButtons, listForEmailInputs } from "../components/List";
-import { EmailForm } from "../types/Types";
+import { DetailForm } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
 import { DeviceUpgrade, Leaver, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
 import { handleFormDetails } from '../components/util/HandleForm';
@@ -8,7 +8,7 @@ import { handleFormDetails } from '../components/util/HandleForm';
 export function EmailTemplates() {
     const [formSelected, setFormSelected] = useState("")
     const [buttonIndex, setButtonIndex] = useState<string>('')
-    const [userForm, setUserForm] = useState<EmailForm>({
+    const [userForm, setUserForm] = useState<DetailForm>({
         user: "Users Name",
         ticket: "RITM000111",
         oldDevice: "Current Device",
@@ -16,6 +16,7 @@ export function EmailTemplates() {
         laptop: "Laptop",
         mobile: "Phone",
         switch: "Laptop",
+        newDevice: "New Device",
     })
 
     const handlePhoneOrLaptop = (

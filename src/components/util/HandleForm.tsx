@@ -1,8 +1,9 @@
 import { JSX } from "preact/jsx-runtime"
-
+import { DetailForm } from "../../types/Types"
+import { StateUpdater } from "preact/hooks"
 
 export const handleFormDetails = (
-        event: JSX.TargetedEvent<HTMLInputElement, Event>,userForm: any,setUserForm: any
+        event: JSX.TargetedEvent<HTMLInputElement, Event>,userForm: DetailForm,setUserForm: StateUpdater<DetailForm>
 ) => {
         if (event.currentTarget.id === "user")
         return setUserForm({ ...userForm, user: event.currentTarget.value })

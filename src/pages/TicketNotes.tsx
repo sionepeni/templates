@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import { listForTicketButtons, listForTicketInputs } from "../components/List";
-import { TicketForm } from "../types/Types";
+import { DetailForm } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
 import { LaptopReplacementSummary, PhoneReplacementSummary } from '../components/templates/TemplatesForTicketNotes';
 import { handleFormDetails } from '../components/util/HandleForm';
@@ -9,8 +9,14 @@ import { handleFormDetails } from '../components/util/HandleForm';
 export function TicketNotes() {
     const [formSelected, setFormSelected] = useState("")
     const [buttonIndex, setButtonIndex] = useState<string>('')
-    const [userForm, setUserForm] = useState<TicketForm>({
+    const [userForm, setUserForm] = useState<DetailForm>({
+        user: "Users Name",
+        ticket: "RITM000111",
         oldDevice: "Current Device",
+        supervisor: "Users TL",
+        laptop: "Laptop",
+        mobile: "Phone",
+        switch: "Laptop",
         newDevice: "New Device",
     })
 

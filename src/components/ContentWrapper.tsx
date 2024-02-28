@@ -1,6 +1,5 @@
 import { TextTemplate } from "../types/Types"
 
-
 export const ContentWrapper = ({ text }: TextTemplate) => {
     return (
         <>
