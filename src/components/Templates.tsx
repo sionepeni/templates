@@ -1,5 +1,20 @@
 import { BasicForm } from "../types/Types"
 
+type Text = {
+    text: string
+}
+
+export const ContentWrapper = ({ text }: Text) => {
+    return (
+        <>
+            {/* <div className="msg-wrapper">
+            {text}
+        </div> */}
+            <button className="button" onClick={() => navigator.clipboard.writeText(text)}>Copy</button>
+        </>
+    )
+}
+
 export const LaptopReplacementSummary = (userForm: BasicForm) => {
     let text = `- Laptop Replacement Summary:
 ===========================================================================
@@ -16,11 +31,7 @@ OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
 - Updated the Serial Number Asset Management (SNAM) database accordingly
 - All necessary configurations completed, the task is now considered closed`
     return (
-        <>
-            <div className="msg-wrapper">
-            {text}
-        </div>
-        </>
+        <ContentWrapper text={text} />
     )
 }
 
@@ -36,12 +47,8 @@ OLD: ${userForm.oldDevice} | NEW: ${userForm.newDevice}
 - Collected old phone & removed from UEM: ${userForm.oldDevice}
 - Updated the Serial Number Asset Management (SNAM) database accordingly
 - All necessary configurations completed, the task is now considered closed`
-        return (
-        <>
-            <div className="msg-wrapper">
-            {text}
-        </div>
-        </>
+    return (
+        <ContentWrapper text={text} />
     )
 }
 
@@ -69,9 +76,7 @@ I will attempt to contact you again over the next two to three working days. I l
 Thank you.`
 
     return (
-        <>
-            <div className="msg-wrapper">{text}</div>
-        </>
+        <ContentWrapper text={text} />
     )
 }
 
@@ -93,9 +98,7 @@ I will attempt to contact you again over the next two to three working days. I l
 Thank you.`
 
     return (
-        <>
-            <div className="msg-wrapper">{text}</div>
-        </>
+        <ContentWrapper text={text} />
     )
 }
 
@@ -117,8 +120,6 @@ Should you have any inquiries or concerns regarding this matter, please do not h
 Thank you for your attention to this issue.`
 
     return (
-        <>
-            <div className="msg-wrapper">{text}</div>
-        </>
+        <ContentWrapper text={text} />
     )
 }

@@ -1,38 +1,21 @@
 import { useState } from 'preact/hooks';
-import "./app.css"
-import { DeviceUpgrade, LaptopReplacementSummary, Leaver, OutOfLifeCycle, PhoneReplacementSummary } from './components/Templates';
-import { listForButtons, listForInputs } from './components/List';
-import { BasicForm } from './types/Types';
+import { listForButtons, listForInputs } from "../components/List";
+import { EmailForm } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
-import { LeaverTemplate } from './components/LeaverTemplate';
-import { EmailTemplates } from './pages/EmailTemplates';
-import { TicketNotes } from './pages/TicketNotes';
+import { DeviceUpgrade, Leaver, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
 
-export function App() {
+export function EmailTemplates() {
     const [formSelected, setFormSelected] = useState("")
-    const [formToRender, setFormToRender] = useState<any>(<TicketNotes />)
     const [buttonIndex, setButtonIndex] = useState<string>('')
-    const [userForm, setUserForm] = useState<BasicForm>({
-        name: "",
+    const [userForm, setUserForm] = useState<EmailForm>({
+        user: "Users Name",
         ticket: "RITM000111",
         oldDevice: "Current Device",
-        newDevice: "New Device",
-        user: "Users Name",
         supervisor: "Users TL",
         laptop: "Laptop",
         mobile: "Phone",
         switch: "Laptop",
     })
-
-    const handleFormSelection = (e: any) => {
-        setFormToRender(e)
-    }
-
-    const handleButtonClick = (
-        event: JSX.TargetedEvent<HTMLButtonElement, Event>
-    ) => {
-        setFormSelected(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
-    }
 
     const handleFormDetails = (
         event: JSX.TargetedEvent<HTMLInputElement, Event>
@@ -41,8 +24,6 @@ export function App() {
             return setUserForm({ ...userForm, ticket: event.currentTarget.value })
         if (event.currentTarget.id === "oldDevice")
             return setUserForm({ ...userForm, oldDevice: event.currentTarget.value })
-        if (event.currentTarget.id === "newDevice")
-            return setUserForm({ ...userForm, newDevice: event.currentTarget.value })
         if (event.currentTarget.id === "user")
             return setUserForm({ ...userForm, user: event.currentTarget.value })
         if (event.currentTarget.id === "supervisor")
@@ -61,12 +42,15 @@ export function App() {
         return setUserForm({ ...userForm, switch: "Laptop" })
     }
 
+    const handleButtonClick = (
+        event: JSX.TargetedEvent<HTMLButtonElement, Event>
+    ) => {
+        setFormSelected(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
+    }
+
     return (
         <>
-            <button onClick={() => handleFormSelection(<TicketNotes />)}>Ticket Notes</button>
-            <button onClick={() => handleFormSelection(< EmailTemplates />)}>Email Templates</button>
-            {formToRender}
-            {/* <div className="options_container">
+            <div className="options_container">
                 <div className="input_container">
                     {listForInputs.map((text) => (
                         <>
@@ -135,18 +119,15 @@ export function App() {
             </div>
 
             <div className="content">
-                {formSelected === "Phone Replacement Notes" ? (
-                    <PhoneReplacementSummary {...userForm} />
-                ) : formSelected === "Laptop Replacement Notes" ? (
-                    <LaptopReplacementSummary {...userForm} />
-                ) : formSelected === "Out of life cycle Email" ? (
+                {formSelected === "Out of life cycle Email" ? (
                     <OutOfLifeCycle {...userForm} />
                 ) : formSelected === "New, replacement Email" ? (
                     <DeviceUpgrade {...userForm} />
                 ) : (
-                    <LeaverTemplate {...userForm} />
+                    <Leaver {...userForm} />
                 )}
-            </div> */}
+            </div>
         </>
     )
 }
+
