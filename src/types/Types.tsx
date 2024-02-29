@@ -1,6 +1,6 @@
 export type DetailForm = {
     oldDevice: string,
-    newDevice: string
+    newDevice: string,
     user: string,
     ticket: string,
     supervisor: string,
