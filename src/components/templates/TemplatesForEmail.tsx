@@ -72,3 +72,26 @@ Thank you for your attention to this issue.`
         <ContentWrapper text={text} />
     )
 }
+
+export const Incident = (userForm: DetailForm) => {
+    let text = `${userForm.ticket}
+
+Kia Ora ${userForm.user},
+    
+I am assigned the Support Ticket with the description:
+    
+Ticket ID: ${userForm.ticket}
+Issue: ${userForm.issue}
+    
+[More Info]
+    
+Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further.
+    
+I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.
+
+Thank you.`
+
+    return (
+        <ContentWrapper text={text} />
+    )
+}

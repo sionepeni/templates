@@ -7,6 +7,7 @@ export type DetailForm = {
     laptop: string,
     mobile: string,
     switch: string,
+    issue: string,
 }
 
 export type TextTemplate = {

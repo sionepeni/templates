@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import { listForEmailButtons, listForEmailInputs } from "../components/List";
 import { DetailForm } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
-import { DeviceUpgrade, Leaver, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
+import { DeviceUpgrade, Incident, Leaver, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
 import { handleFormDetails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
@@ -17,6 +17,7 @@ export function EmailTemplates() {
         mobile: "Phone",
         switch: "Laptop",
         newDevice: "New Device",
+        issue: 'Issue'
     })
 
     const handleButtonClick = (
@@ -32,7 +33,7 @@ export function EmailTemplates() {
                     {listForEmailInputs.map((text) => (
                         <>
                             <div className="input_field">
-                                {text.text}:{" "}
+                                {text.text}
                                 <input
                                     id={text.id}
                                     placeholder={text.text}
@@ -113,7 +114,7 @@ export function EmailTemplates() {
                 ) : formSelected === "New, replacement Email" ? (
                     <DeviceUpgrade {...userForm} />
                 ) : (
-                    <Leaver {...userForm} />
+                    <Incident {...userForm} />
                 )}
             </div>
         </>

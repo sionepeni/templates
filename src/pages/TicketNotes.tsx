@@ -18,6 +18,7 @@ export function TicketNotes() {
         mobile: "Phone",
         switch: "Laptop",
         newDevice: "New Device",
+        issue: 'Issue'
     })
 
     const handleButtonClick = (
