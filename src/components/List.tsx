@@ -20,9 +20,14 @@ export const listForEmailInputs = [
 ]
 
 export const listForLeaverInputs = [
-    { id: "mobile", text: "Leavers Phone", checkbox: true },
-    { id: "supervisor", text: "Supervisor", checkbox: false },
-    { id: "laptop", text: "Leavers Laptop", checkbox: true },
     { id: "user", text: "User" },
+    { id: "supervisor", text: "Supervisor", checkbox: false },
+    { id: "mobile", text: "Leavers Phone", checkbox: true },
+    { id: "laptop", text: "Leavers Laptop", checkbox: true },
+]
 
+export const listForAppButtons = [
+    { text: 'Ticket Notes', value: '1' },
+    { text: 'Email Templates', value: '2' },
+    { text: 'Leavers Template', value: '3' },
 ]

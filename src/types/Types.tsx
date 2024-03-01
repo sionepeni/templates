@@ -13,3 +13,8 @@ export type DetailForm = {
 export type TextTemplate = {
     text: string
 }
+
+export type LeaverInputs = [{
+    laptop: string,
+    phone: string
+}]

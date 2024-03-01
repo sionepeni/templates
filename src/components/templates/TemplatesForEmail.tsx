@@ -51,28 +51,6 @@ Thank you.`
     )
 }
 
-export const Leaver = (userForm: DetailForm) => {
-    let text = `${userForm.ticket} - ${userForm.user} - Computer and Phone Equipment
-
-Kia Ora ${userForm.supervisor},
-
-I am writing to follow up regarding a user, ${userForm.user}, who has yet to return the following ICT equipment:
-
-1. User Computer: ${userForm.laptop}
-
-2. User Mobile: ${userForm.mobile}
-
-Please note that according to our ICT policy, failure to return the aforementioned items will result in a charge to your cost department.
-
-Should you have any inquiries or concerns regarding this matter, please do not hesitate to inform us.
-
-Thank you for your attention to this issue.`
-
-    return (
-        <ContentWrapper text={text} />
-    )
-}
-
 export const Incident = (userForm: DetailForm) => {
     let text = `${userForm.ticket}
 

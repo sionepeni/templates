@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import { listForEmailButtons, listForEmailInputs } from "../components/List";
 import { DetailForm } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
-import { DeviceUpgrade, Incident, Leaver, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
+import { DeviceUpgrade, Incident, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
 import { handleFormDetails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
@@ -25,6 +25,7 @@ export function EmailTemplates() {
     ) => {
         setFormSelected(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
     }
+    console.log(userForm.switch)
 
     return (
         <>
