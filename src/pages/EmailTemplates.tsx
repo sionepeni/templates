@@ -1,31 +1,34 @@
 import { useState } from 'preact/hooks';
 import { listForEmailButtons, listForEmailInputs } from "../components/List";
-import { DetailForm } from "../types/Types";
+import { EmailProps } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
 import { DeviceUpgrade, Incident, OutOfLifeCycle } from '../components/templates/TemplatesForEmail';
-import { handleFormDetails } from '../components/util/HandleForm';
+import { handleFormDetailsForEmails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
-    const [formSelected, setFormSelected] = useState("")
-    const [buttonIndex, setButtonIndex] = useState<string>('')
-    const [userForm, setUserForm] = useState<DetailForm>({
+    const [formSelected, setFormSelected] = useState("Out of life cycle Email")
+    const [buttonIndex, setButtonIndex] = useState<string>('0')
+    const [userForm, setUserForm] = useState<EmailProps>({
         user: "Users Name",
         ticket: "RITM000111",
         oldDevice: "Current Device",
-        supervisor: "Users TL",
-        laptop: "Laptop",
-        mobile: "Phone",
         switch: "Laptop",
-        newDevice: "New Device",
-        issue: 'Issue'
+        issue: 'Issue',
     })
+    const [generateForm, setGenerateForm] = useState(<OutOfLifeCycle {...userForm} />)
 
     const handleButtonClick = (
         event: JSX.TargetedEvent<HTMLButtonElement, Event>
     ) => {
-        setFormSelected(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
+        handleFormShown(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
     }
-    console.log(userForm.switch)
+
+    const handleFormShown = (phrase: string) => {
+        setFormSelected(phrase)
+        if (phrase === "Out of life cycle Email") return setGenerateForm(<OutOfLifeCycle {...userForm} />)
+        if (phrase === "New, replacement Email") return setGenerateForm(<DeviceUpgrade {...userForm} />)
+        if (phrase === "Incident Email") return setGenerateForm(<Incident {...userForm} />)
+    }
 
     return (
         <>
@@ -44,7 +47,7 @@ export function EmailTemplates() {
                                             Event
                                         >
                                     ) =>
-                                        handleFormDetails(
+                                        handleFormDetailsForEmails(
                                             event,
                                             userForm,
                                             setUserForm
@@ -68,7 +71,7 @@ export function EmailTemplates() {
                                             Event
                                         >
                                     ) =>
-                                        handleFormDetails(
+                                        handleFormDetailsForEmails(
                                             event,
                                             userForm,
                                             setUserForm
@@ -110,13 +113,7 @@ export function EmailTemplates() {
             </div>
 
             <div className="content">
-                {formSelected === "Out of life cycle Email" ? (
-                    <OutOfLifeCycle {...userForm} />
-                ) : formSelected === "New, replacement Email" ? (
-                    <DeviceUpgrade {...userForm} />
-                ) : (
-                    <Incident {...userForm} />
-                )}
+                {generateForm}
             </div>
         </>
     )

@@ -1,24 +1,23 @@
 import { useState } from 'preact/hooks';
-import { listForLeaverInputs } from "../components/List";
-import { LeaverProps } from "../types/Types";
+import { listForNewStarterInputs } from "../components/List";
+import { NewStarterProps } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
-import { handleFormDetailsForLeavers } from '../components/util/HandleForm';
-import { TemplatesForLeavers } from '../components/templates/TemplatesForLeavers';
+import { NewStarterPackage } from '../components/templates/TemplatesForEmail';
+import { handleFormDetailsForNewStarters } from '../components/util/HandleForm';
 
-export function LeaversTemplates() {
-    const [userForm, setUserForm] = useState<LeaverProps>({
+export function NewStarterEmail() {
+    const [userForm, setUserForm] = useState<NewStarterProps>({
         user: "Users Name",
         ticket: "RITM000111",
         supervisor: "Users TL",
-        laptop: 'Laptop',
-        mobile: 'Phone'
+        date: 'dd/mm',
     })
 
     return (
         <>
             <div className="options_container">
                 <div className="input_container">
-                    {listForLeaverInputs.map((text) => (
+                    {listForNewStarterInputs.map((text) => (
                         <>
                             <div className="input_field">
                                 {text.text}
@@ -31,7 +30,7 @@ export function LeaversTemplates() {
                                             Event
                                         >
                                     ) =>
-                                        handleFormDetailsForLeavers(
+                                        handleFormDetailsForNewStarters(
                                             event,
                                             userForm,
                                             setUserForm
@@ -48,8 +47,9 @@ export function LeaversTemplates() {
             </div>
 
             <div className="content">
-                <TemplatesForLeavers {...userForm} />
+                <NewStarterPackage {...userForm} />
             </div>
         </>
     )
 }
+

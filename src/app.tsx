@@ -5,6 +5,7 @@ import "./app.css"
 import { JSX } from 'preact/jsx-runtime';
 import { LeaversTemplates } from './pages/LeaversTemplate';
 import { listForAppButtons } from './components/List';
+import { NewStarterEmail } from './pages/NewStarterEmail';
 
 export function App() {
     const [buttonIndex, setButtonIndex] = useState<string>('1')
@@ -17,6 +18,7 @@ export function App() {
         if (e.currentTarget.value === '1') return setFormToRender(<TicketNotes />), setButtonIndex('1')
         if (e.currentTarget.value === '2') return setFormToRender(<EmailTemplates />), setButtonIndex('2')
         if (e.currentTarget.value === '3') return setFormToRender(<LeaversTemplates />), setButtonIndex('3')
+        if (e.currentTarget.value === '4') return setFormToRender(<NewStarterEmail />), setButtonIndex('4')
     }
 
     return (

@@ -1,75 +1,102 @@
-import { DetailForm } from "../../types/Types"
-import { ContentWrapper } from "../ContentWrapper"
+import { EmailProps, NewStarterProps } from "../../types/Types"
+import { Greeting, LineBreak, Signature } from "../list and sigs/EmailFillers"
+import { HandleEmailAddress } from "../util/HandleEmailFunctions"
 
-export const OutOfLifeCycle = (userForm: DetailForm) => {
-    let text = `${userForm.ticket} - Device Upgrade Required for ${userForm.oldDevice}
-
-Kia Ora ${userForm.user},
-
-I am assigned the Support Ticket with the description:
-
-Ticket ID: ${userForm.ticket}
-
-Description: Computer System Upgrade Ticket Creation
-
-Your device is now out of lifecycle, and we need to arrange a suitable time to swap out your device.
-
-Device Name: ${userForm.oldDevice}
-
-To resolve this, could you please advise a time when you can come into the Manukau Civic Building to have your device upgraded?
-
-Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further.
-
-I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.<br />
-
-Thank you.`
-
+export const OutOfLifeCycle = (userForm: EmailProps) => {
+    const address = HandleEmailAddress(userForm.user)
+    const subject = `${userForm.ticket} - Device Upgrade Required for ${userForm.oldDevice}`
+    const hello = Greeting(userForm.user)
+    const text = `${hello}
+    ${LineBreak}
+I am assigned the Support Ticket with the description: ${LineBreak}
+ ${LineBreak}
+Ticket ID: ${userForm.ticket} ${LineBreak}
+Description: Computer System Upgrade Ticket Creation ${LineBreak}
+ ${LineBreak}
+Your device is now out of lifecycle, and we need to arrange a suitable time to swap out your device. ${LineBreak}
+ ${LineBreak}
+Device Name: ${userForm.oldDevice} ${LineBreak}
+ ${LineBreak}
+To resolve this, could you please advise a time when you can come into the Manukau Civic Building to have your device upgraded? ${LineBreak}
+ ${LineBreak}
+Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further. ${LineBreak}
+ ${LineBreak}
+I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon. ${LineBreak}
+ ${LineBreak}
+Thank you. ${LineBreak}
+ ${LineBreak}
+${Signature}
+`
     return (
-        <ContentWrapper text={text} />
+        <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
     )
 }
 
-export const DeviceUpgrade = (userForm: DetailForm) => {
-    let text = `${userForm.ticket} - New, replacement or upgraded ${userForm.switch}
-
-Kia Ora ${userForm.user},
-
-I am assigned the Support Ticket with the description:
-
-Ticket ID: ${userForm.ticket}
-
-Description: New, replacement or upgraded ${userForm.switch}
-
-Could we arrange a convenient time for you to visit the Manukau Civic Building so we can proceed with setting up your requested phone? This process will require the utilization of your credentials and is expected to take approximately 30 to 40 minutes.
-
-I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.
-
-Thank you.`
-
+export const DeviceUpgrade = (userForm: EmailProps) => {
+    const address = HandleEmailAddress(userForm.user)
+    const subject = `${userForm.ticket} - New, replacement or upgraded ${userForm.switch}`
+    const hello = Greeting(userForm.user)
+    console.log(userForm.switch)
+    const text = `${hello}
+    ${LineBreak}
+I am assigned the Support Ticket with the description:${LineBreak}
+${LineBreak}
+Ticket ID: ${userForm.ticket}${LineBreak}
+Description: New, replacement or upgraded ${userForm.switch}${LineBreak}
+${LineBreak}
+Could we arrange a convenient time for you to visit the Manukau Civic Building so we can proceed with setting up your requested phone? This process will require the utilization of your credentials and is expected to take approximately 30 to 40 minutes.${LineBreak}
+${LineBreak}
+I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.${LineBreak}
+${LineBreak}
+Thank you.${LineBreak}
+${LineBreak}
+${Signature}
+`
     return (
-        <ContentWrapper text={text} />
+        <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
     )
 }
 
-export const Incident = (userForm: DetailForm) => {
-    let text = `${userForm.ticket}
+export const Incident = (userForm: EmailProps) => {
+    const address = HandleEmailAddress(userForm.user)
+    const hello = Greeting(userForm.user)
+    const text = `${hello}
+    ${LineBreak}
+I am assigned the Support Ticket with the description:${LineBreak}
+${LineBreak}
+Ticket ID: ${userForm.ticket}${LineBreak}
+Issue: ${userForm.issue}${LineBreak}
+${LineBreak}
+[More Info]${LineBreak}
+${LineBreak}
+Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further.${LineBreak}
+${LineBreak}
+I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.${LineBreak}
+${LineBreak}
+Thank you.${LineBreak}
+${LineBreak}
+${Signature}
+`
+    return (
+        <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${userForm.ticket}&body=${text}`}>Send Email</button>
+    )
+}
 
-Kia Ora ${userForm.user},
-    
-I am assigned the Support Ticket with the description:
-    
-Ticket ID: ${userForm.ticket}
-Issue: ${userForm.issue}
-    
-[More Info]
-    
-Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further.
-    
-I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.
-
-Thank you.`
+export const NewStarterPackage = (userForm: NewStarterProps) => {
+    const address = HandleEmailAddress(userForm.supervisor)
+    const subject = `${userForm.ticket} - ${userForm.user} - New Starter Package`
+    const hello = Greeting(userForm.supervisor)
+    const text = `${hello}
+    ${LineBreak}
+I hope this message finds you well. ${LineBreak}
+${LineBreak}
+I am pleased to inform you that the new starter package for ${userForm.user} is ready to be collected on ${userForm.date} from the Manukau Civic Building. ${LineBreak}
+${LineBreak}
+Should you have any inquiries or require further assistance, please do not hesitate to reach out.${LineBreak}
+${LineBreak}
+${Signature}`
 
     return (
-        <ContentWrapper text={text} />
+        <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
     )
 }

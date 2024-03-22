@@ -1,30 +1,30 @@
 import { useState } from 'preact/hooks';
 import { listForTicketButtons, listForTicketInputs } from "../components/List";
-import { DetailForm } from "../types/Types";
+import { TicketProps } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
-import { LaptopReplacementSummary, PhoneReplacementSummary } from '../components/templates/TemplatesForTicketNotes';
-import { handleFormDetails } from '../components/util/HandleForm';
+import { AccountLockout, LaptopReplacementSummary, PhoneReplacementSummary, TabletReplacementSummary } from '../components/templates/TemplatesForTicketNotes';
+import { handleFormDetailsForTickets } from '../components/util/HandleForm';
 
 
 export function TicketNotes() {
-    const [formSelected, setFormSelected] = useState("")
-    const [buttonIndex, setButtonIndex] = useState<string>('')
-    const [userForm, setUserForm] = useState<DetailForm>({
-        user: "Users Name",
-        ticket: "RITM000111",
+    const [buttonIndex, setButtonIndex] = useState<string>('0')
+    const [userForm, setUserForm] = useState<TicketProps>({
         oldDevice: "Current Device",
-        supervisor: "Users TL",
-        laptop: "Laptop",
-        mobile: "Phone",
-        switch: "Laptop",
         newDevice: "New Device",
-        issue: 'Issue'
     })
+    const [generateForm, setGenerateForm] = useState(<PhoneReplacementSummary {...userForm} />)
 
     const handleButtonClick = (
         event: JSX.TargetedEvent<HTMLButtonElement, Event>
     ) => {
-        setFormSelected(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
+        handleFormShown(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
+    }
+
+    const handleFormShown = (phrase: string) => {
+        if (phrase === "Phone Replacement Notes") return setGenerateForm(<PhoneReplacementSummary {...userForm} />)
+        if (phrase === "Laptop Replacement Notes") return setGenerateForm(<LaptopReplacementSummary {...userForm} />)
+        if (phrase === "Tablet Replacement Notes") return setGenerateForm(<TabletReplacementSummary {...userForm} />)
+        if (phrase === "Account Lockout") return setGenerateForm(<AccountLockout />)
     }
 
     return (
@@ -44,7 +44,7 @@ export function TicketNotes() {
                                             Event
                                         >
                                     ) =>
-                                        handleFormDetails(
+                                        handleFormDetailsForTickets(
                                             event,
                                             userForm,
                                             setUserForm
@@ -82,11 +82,7 @@ export function TicketNotes() {
             </div>
 
             <div className="content">
-                {formSelected === "Phone Replacement Notes" ? (
-                    <PhoneReplacementSummary {...userForm} />
-                ) : (
-                    <LaptopReplacementSummary {...userForm} />
-                )}
+                {generateForm}
             </div>
         </>
     )
