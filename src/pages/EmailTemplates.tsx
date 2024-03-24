@@ -7,7 +7,7 @@ import { handleFormDetailsForEmails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
     const [formSelected, setFormSelected] = useState("Out of life cycle Email")
-    const [buttonIndex, setButtonIndex] = useState<string>('0')
+    const [buttonIndex, setButtonIndex] = useState<string>('')
     const [userForm, setUserForm] = useState<EmailProps>({
         user: "Users Name",
         ticket: "RITM000111",

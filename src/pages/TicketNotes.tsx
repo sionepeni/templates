@@ -7,7 +7,7 @@ import { handleFormDetailsForTickets } from '../components/util/HandleForm';
 
 
 export function TicketNotes() {
-    const [buttonIndex, setButtonIndex] = useState<string>('0')
+    const [buttonIndex, setButtonIndex] = useState<string>('')
     const [userForm, setUserForm] = useState<TicketProps>({
         oldDevice: "Current Device",
         newDevice: "New Device",
