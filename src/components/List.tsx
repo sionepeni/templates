@@ -6,8 +6,8 @@ export const listForTicketButtons = [
 ]
 
 export const listForEmailButtons = [
-    { id: 'Out of life cycle Email', index: 0 },
-    { id: 'New, replacement Email', index: 1 },
+    { id: 'New, replacement Email', index: 0 },
+    { id: 'Out of life cycle Email', index: 1 },
     { id: 'Incident Email', index: 2 },
 ]
 

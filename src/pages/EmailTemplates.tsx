@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useState, useEffect } from 'preact/hooks';
 import { listForEmailButtons, listForEmailInputs } from "../components/List";
 import { EmailProps } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
@@ -6,7 +6,7 @@ import { DeviceUpgrade, Incident, OutOfLifeCycle } from '../components/templates
 import { handleFormDetailsForEmails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
-    const [formSelected, setFormSelected] = useState("Out of life cycle Email")
+    const [formSelected, setFormSelected] = useState("New, replacement Email")
     const [buttonIndex, setButtonIndex] = useState<string>('')
     const [userForm, setUserForm] = useState<EmailProps>({
         user: "Users Name",
@@ -29,6 +29,10 @@ export function EmailTemplates() {
         if (phrase === "New, replacement Email") return setGenerateForm(<DeviceUpgrade {...userForm} />)
         if (phrase === "Incident Email") return setGenerateForm(<Incident {...userForm} />)
     }
+
+    useEffect(() => {
+
+    }, [userForm.switch])
 
     return (
         <>
@@ -78,8 +82,8 @@ export function EmailTemplates() {
                                         )
                                     }
                                 ></input>
-                                {userForm.switch === "Phone"
-                                    ? "Phone"
+                                {userForm.switch === "Mobile Phone"
+                                    ? "Mobile Phone"
                                     : "Laptop"}
                             </div>
                         </div>

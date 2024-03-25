@@ -75,7 +75,7 @@ export const handleFormDetailsForEmails = (event: JSX.TargetedEvent<HTMLInputEle
         return setUserForm({ ...userForm, ticket: event.currentTarget.value })
     if (event.currentTarget.id === "issue")
         return setUserForm({ ...userForm, issue: event.currentTarget.value })
-    if (event.currentTarget.checked === true) return setUserForm({ ...userForm, switch: 'Phone' })
+    if (event.currentTarget.checked === true) return setUserForm({ ...userForm, switch: 'Mobile Phone' })
     if (event.currentTarget.checked === false) return setUserForm({ ...userForm, switch: 'Laptop' })
     if (event.currentTarget.id === "oldDevice")
         return setUserForm({
