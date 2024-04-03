@@ -25,7 +25,6 @@ I will attempt to contact you again over the next two to three working days. I l
  ${LineBreak}
 Thank you. ${LineBreak}
  ${LineBreak}
-${Signature}
 `
     return (
         <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
@@ -50,7 +49,6 @@ I will attempt to contact you again over the next two to three working days. I l
 ${LineBreak}
 Thank you.${LineBreak}
 ${LineBreak}
-${Signature}
 `
     return (
         <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
@@ -75,7 +73,6 @@ I will attempt to contact you again over the next two to three working days. I l
 ${LineBreak}
 Thank you.${LineBreak}
 ${LineBreak}
-${Signature}
 `
     return (
         <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${userForm.ticket}&body=${text}`}>Send Email</button>
@@ -94,7 +91,7 @@ I am pleased to inform you that the new starter package for ${userForm.user} is 
 ${LineBreak}
 Should you have any inquiries or require further assistance, please do not hesitate to reach out.${LineBreak}
 ${LineBreak}
-${Signature}`
+`
 
     return (
         <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
