@@ -1,5 +1,5 @@
 import { EmailProps, NewStarterProps } from "../../types/Types"
-import { Greeting, LineBreak, Signature } from "../list and sigs/EmailFillers"
+import { Greeting, LineBreak } from "../list and sigs/EmailFillers"
 import { HandleEmailAddress } from "../util/HandleEmailFunctions"
 
 export const OutOfLifeCycle = (userForm: EmailProps) => {
