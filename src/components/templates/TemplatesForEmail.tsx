@@ -43,7 +43,7 @@ ${LineBreak}
 Ticket ID: ${userForm.ticket}${LineBreak}
 Description: New, replacement or upgraded ${userForm.switch}${LineBreak}
 ${LineBreak}
-Could we arrange a convenient time for you to visit the Manukau Civic Building so we can proceed with setting up your requested phone? This process will require the utilization of your credentials and is expected to take approximately 30 to 40 minutes.${LineBreak}
+Could we arrange a convenient time for you to visit the Manukau Civic Building so we can proceed with setting up your requested ${userForm.switch}? This process will require the utilization of your credentials and is expected to take approximately 30 to 40 minutes.${LineBreak}
 ${LineBreak}
 I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.${LineBreak}
 ${LineBreak}
