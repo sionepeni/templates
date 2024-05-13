@@ -18,7 +18,7 @@ export const listForTicketInputs = [
 export const listForEmailInputs = [
     { id: "user", text: "User" },
     { id: "ticket", text: "Ticket" },
-    { id: "oldDevice", text: "Device to upgrade" },
+    { id: "oolcDevice", text: "Device to upgrade" },
     { id: 'issue', text: 'Issue' },
 ]
 

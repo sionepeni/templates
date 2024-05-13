@@ -4,7 +4,7 @@ import { HandleEmailAddress } from "../util/HandleEmailFunctions"
 
 export const OutOfLifeCycle = (userForm: EmailProps) => {
     const address = HandleEmailAddress(userForm.user)
-    const subject = `${userForm.ticket} - Device Upgrade Required for ${userForm.oldDevice}`
+    const subject = `${userForm.ticket} - Device Upgrade Required for ${userForm.oolcDevice}`
     const hello = Greeting(userForm.user)
     const text = `${hello}
     ${LineBreak}
@@ -15,16 +15,15 @@ Description: Computer System Upgrade Ticket Creation ${LineBreak}
  ${LineBreak}
 Your device is now out of lifecycle, and we need to arrange a suitable time to swap out your device. ${LineBreak}
  ${LineBreak}
-Device Name: ${userForm.oldDevice} ${LineBreak}
- ${LineBreak}
+Device Name: ${userForm.oolcDevice} ${LineBreak}
+${LineBreak}
 To resolve this, could you please advise a time when you can come into the Manukau Civic Building to have your device upgraded? ${LineBreak}
- ${LineBreak}
 Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further. ${LineBreak}
- ${LineBreak}
+${LineBreak}
 I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon. ${LineBreak}
- ${LineBreak}
+${LineBreak}
 Thank you. ${LineBreak}
- ${LineBreak}
+${LineBreak}
 `
     return (
         <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>

@@ -29,11 +29,11 @@ export type DetailForm = {
 }
 
 export type EmailProps = {
-    oldDevice: string,
     user: string,
     ticket: string,
     switch: string,
     issue: string,
+    oolcDevice: string,
 }
 
 export type LeaverProps = {

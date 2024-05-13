@@ -11,7 +11,7 @@ export function EmailTemplates() {
     const [userForm, setUserForm] = useState<EmailProps>({
         user: "Users Name",
         ticket: "RITM000111",
-        oldDevice: "Current Device",
+        oolcDevice: "Device to upgrade",
         switch: "Laptop",
         issue: 'Issue',
     })

@@ -69,19 +69,20 @@ export const handleFormDetailsForNewStarters = (event: JSX.TargetedEvent<HTMLInp
 }
 
 export const handleFormDetailsForEmails = (event: JSX.TargetedEvent<HTMLInputElement, Event>, userForm: EmailProps, setUserForm: StateUpdater<EmailProps>) => {
+    console.log(event.currentTarget.value)
     if (event.currentTarget.id === "user")
         return setUserForm({ ...userForm, user: event.currentTarget.value }), HandleEmailAddress(event.currentTarget.value)
     if (event.currentTarget.id === "ticket")
         return setUserForm({ ...userForm, ticket: event.currentTarget.value })
     if (event.currentTarget.id === "issue")
         return setUserForm({ ...userForm, issue: event.currentTarget.value })
-    if (event.currentTarget.checked === true) return setUserForm({ ...userForm, switch: 'Mobile Phone' })
-    if (event.currentTarget.checked === false) return setUserForm({ ...userForm, switch: 'Laptop' })
-    if (event.currentTarget.id === "oldDevice")
+    if (event.currentTarget.id === "oolcDevice")
         return setUserForm({
             ...userForm,
-            oldDevice: event.currentTarget.value,
+            oolcDevice: event.currentTarget.value
         })
+    if (event.currentTarget.checked === true) return setUserForm({ ...userForm, switch: 'Mobile Phone' })
+    if (event.currentTarget.checked === false) return setUserForm({ ...userForm, switch: 'Laptop' })
 }
 
 export const handleFormDetailsForLeavers = (event: JSX.TargetedEvent<HTMLInputElement, Event>, userForm: LeaverProps, setUserForm: StateUpdater<LeaverProps>) => {
