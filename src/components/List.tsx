@@ -16,8 +16,8 @@ export const listForTicketInputs = [
     { id: 'newDevice', text: 'New Device' }]
 
 export const listForEmailInputs = [
-    { id: "user", text: "User" },
     { id: "ticket", text: "Ticket" },
+    { id: "user", text: "User" },
     { id: "oolcDevice", text: "Device to upgrade" },
     { id: 'issue', text: 'Issue' },
 ]
@@ -30,11 +30,11 @@ export const listForNewStarterInputs = [
 ]
 
 export const listForLeaverInputs = [
-    { id: "user", text: "User" },
-    { id: "supervisor", text: "Supervisor" },
     { id: "ticket", text: "Ticket" },
+    { id: "user", text: "User" },
     { id: "laptop", text: "Laptop" },
     { id: "mobile", text: "Phone" },
+    { id: "supervisor", text: "Supervisor" },
 
 ]
 
