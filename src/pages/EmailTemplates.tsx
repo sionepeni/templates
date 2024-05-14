@@ -63,33 +63,29 @@ export function EmailTemplates() {
                         </>
                     ))}
 
-                    {formSelected === "New, replacement Email" ? (
-                        <div className="extra_options">
-                            <div className="little-prompt">
-                                Switch:{" "}
-                                <input
-                                    type="checkbox"
-                                    onChange={(
-                                        event: JSX.TargetedEvent<
-                                            HTMLInputElement,
-                                            Event
-                                        >
-                                    ) =>
-                                        handleFormDetailsForEmails(
-                                            event,
-                                            userForm,
-                                            setUserForm
-                                        )
-                                    }
-                                ></input>
-                                {userForm.switch === "Mobile Phone"
-                                    ? "Mobile Phone"
-                                    : "Laptop"}
-                            </div>
+                    <div className="extra_options">
+                        <div className="little-prompt">
+                            Switch:{" "}
+                            <input
+                                type="checkbox"
+                                onChange={(
+                                    event: JSX.TargetedEvent<
+                                        HTMLInputElement,
+                                        Event
+                                    >
+                                ) =>
+                                    handleFormDetailsForEmails(
+                                        event,
+                                        userForm,
+                                        setUserForm
+                                    )
+                                }
+                            ></input>
+                            {userForm.switch === "Mobile Phone"
+                                ? "Mobile Phone"
+                                : "Laptop"}
                         </div>
-                    ) : (
-                        ""
-                    )}
+                    </div>
                 </div>
 
                 <div className="button_container">

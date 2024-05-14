@@ -4,18 +4,18 @@ import { HandleEmailAddress } from "../util/HandleEmailFunctions"
 
 export const OutOfLifeCycle = (userForm: EmailProps) => {
     const address = HandleEmailAddress(userForm.user)
-    const subject = `${userForm.ticket} - Device Upgrade Required for ${userForm.oolcDevice}`
+    const subject = `${userForm.ticket} - Device Upgrade Required for ${userForm.switch} - ${userForm.oolcDevice}`
     const hello = Greeting(userForm.user)
     const text = `${hello}
     ${LineBreak}
 I am assigned the Support Ticket with the description: ${LineBreak}
  ${LineBreak}
 Ticket ID: ${userForm.ticket} ${LineBreak}
-Description: Computer System Upgrade Ticket Creation ${LineBreak}
+Description: Computer System Upgrade Ticket Creation for ${userForm.switch} ${LineBreak}
  ${LineBreak}
 Your device is now out of lifecycle, and we need to arrange a suitable time to swap out your device. ${LineBreak}
  ${LineBreak}
-Device Name: ${userForm.oolcDevice} ${LineBreak}
+${userForm.switch} Name: ${userForm.oolcDevice} ${LineBreak}
 ${LineBreak}
 To resolve this, could you please advise a time when you can come into the Manukau Civic Building to have your device upgraded? ${LineBreak}
 Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further. ${LineBreak}
