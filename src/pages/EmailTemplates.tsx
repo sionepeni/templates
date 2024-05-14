@@ -6,7 +6,6 @@ import { DeviceUpgrade, Incident, OutOfLifeCycle } from '../components/templates
 import { handleFormDetailsForEmails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
-    const [formSelected, setFormSelected] = useState("New, replacement Email")
     const [buttonIndex, setButtonIndex] = useState<string>('')
     const [userForm, setUserForm] = useState<EmailProps>({
         user: "Users Name",
@@ -24,7 +23,6 @@ export function EmailTemplates() {
     }
 
     const handleFormShown = (phrase: string) => {
-        setFormSelected(phrase)
         if (phrase === "Out of life cycle Email") return setGenerateForm(<OutOfLifeCycle {...userForm} />)
         if (phrase === "New, replacement Email") return setGenerateForm(<DeviceUpgrade {...userForm} />)
         if (phrase === "Incident Email") return setGenerateForm(<Incident {...userForm} />)
