@@ -18,8 +18,7 @@ ${LineBreak}
 Should you have any inquiries or concerns regarding this matter, please do not hesitate to inform me.${LineBreak}
 ${LineBreak}
 Thank you for your attention to this matter.${LineBreak}
-${LineBreak}
-${Signature}`
+`
     return (
         <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
     )
