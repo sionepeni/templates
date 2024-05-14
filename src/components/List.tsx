@@ -23,10 +23,10 @@ export const listForEmailInputs = [
 ]
 
 export const listForNewStarterInputs = [
-    { id: "user", text: "User" },
     { id: "ticket", text: "Ticket" },
-    { id: "supervisor", text: "Supervisor" },
+    { id: "user", text: "User" },
     { id: "date", text: "Date" },
+    { id: "supervisor", text: "Supervisor" },
 ]
 
 export const listForLeaverInputs = [
