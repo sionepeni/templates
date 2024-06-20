@@ -7,7 +7,6 @@ import { handleFormDetailsForTickets } from '../components/util/HandleForm';
 
 
 export function TicketNotes() {
-    const [buttonIndex, setButtonIndex] = useState<string>('')
     const [userForm, setUserForm] = useState<TicketProps>({
         oldDevice: "Current Device",
         newDevice: "New Device",
@@ -17,7 +16,7 @@ export function TicketNotes() {
     const handleButtonClick = (
         event: JSX.TargetedEvent<HTMLButtonElement, Event>
     ) => {
-        handleFormShown(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
+        handleFormShown(event.currentTarget.id)
     }
 
     const handleFormShown = (phrase: string) => {
@@ -63,11 +62,7 @@ export function TicketNotes() {
                             key={text.index}
                             id={text.id}
                             value={text.index}
-                            className={
-                                parseInt(buttonIndex) === text.index
-                                    ? "selectedButton"
-                                    : "buttons"
-                            }
+                            className="buttons"
                             onClick={(
                                 event: JSX.TargetedEvent<
                                     HTMLButtonElement,

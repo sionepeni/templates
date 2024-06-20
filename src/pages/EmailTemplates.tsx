@@ -6,7 +6,6 @@ import { DeviceUpgrade, Incident, OutOfLifeCycle } from '../components/templates
 import { handleFormDetailsForEmails } from '../components/util/HandleForm';
 
 export function EmailTemplates() {
-    const [buttonIndex, setButtonIndex] = useState<string>('')
     const [userForm, setUserForm] = useState<EmailProps>({
         user: "Users Name",
         ticket: "RITM000111",
@@ -19,7 +18,7 @@ export function EmailTemplates() {
     const handleButtonClick = (
         event: JSX.TargetedEvent<HTMLButtonElement, Event>
     ) => {
-        handleFormShown(event.currentTarget.id), setButtonIndex(event.currentTarget.value)
+        handleFormShown(event.currentTarget.id)
     }
 
     const handleFormShown = (phrase: string) => {
@@ -92,11 +91,7 @@ export function EmailTemplates() {
                             key={text.index}
                             id={text.id}
                             value={text.index}
-                            className={
-                                parseInt(buttonIndex) === text.index
-                                    ? "selectedButton"
-                                    : "buttons"
-                            }
+                            className="buttons"
                             onClick={(
                                 event: JSX.TargetedEvent<
                                     HTMLButtonElement,
