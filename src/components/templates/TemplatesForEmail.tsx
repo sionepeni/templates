@@ -96,3 +96,27 @@ ${LineBreak}
         <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
     )
 }
+
+export const FinalStrike = (userForm: EmailProps) => {
+    const address = HandleEmailAddress(userForm.user)
+    const subject = `${userForm.ticket} - New, replacement or upgraded ${userForm.switch}`
+    const hello = Greeting(userForm.user)
+    console.log(userForm.switch)
+    const text = `${hello}
+    ${LineBreak}
+I am currently managing the Awhina.${LineBreak}
+${LineBreak}
+Ticket ID: ${userForm.ticket}${LineBreak}
+Description: New, replacement or upgraded ${userForm.switch}${LineBreak}
+${LineBreak}
+Please note this Awhina request has been placed on hold pending your response.  In the event of no response within 3 days, we will attempt to contact you once more in the next 3 working days.
+${LineBreak}
+If still no response, we will consider the laptop is not the Awhina request will be placed in a Resolved state. This means that you will have a further 3 working days to come back to us. At that point, if we still have not heard from you, this support request will be automatically closed. If the logged issue still exists, or re-occurs, you will need to raise a new Awhina request.${LineBreak}
+${LineBreak}
+Thanks, in advance, for your co-operation and understanding in this matter.${LineBreak}
+${LineBreak}
+`
+    return (
+        <button className="button" onClick={() => window.location.href = `mailto:${address}?subject=${subject}&body=${text}`}>Send Email</button>
+    )
+}
