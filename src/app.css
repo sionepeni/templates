@@ -94,6 +94,10 @@
   width: 210px;
 }
 
+.buttons:focus {
+  background-color: lightblue;
+}
+
 .button {
   border: 1px solid black;
   height: 3rem;
