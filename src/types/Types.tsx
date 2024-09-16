@@ -34,6 +34,7 @@ export type EmailProps = {
     switch: string,
     issue: string,
     oolcDevice: string,
+    location: string,
 }
 
 export type LeaverProps = {
@@ -49,6 +50,7 @@ export type NewStarterProps = {
     user: string,
     ticket: string,
     date: string,
+    location: string,
 }
 
 export type TicketProps = {

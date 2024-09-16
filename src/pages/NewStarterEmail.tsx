@@ -11,6 +11,7 @@ export function NewStarterEmail() {
         ticket: "RITM000111",
         supervisor: "Users TL",
         date: 'dd/mm',
+        location: 'Location',
     })
 
     return (

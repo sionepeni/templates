@@ -12,6 +12,7 @@ export function EmailTemplates() {
         oolcDevice: "Device to upgrade",
         switch: "Laptop",
         issue: 'Issue',
+        location: 'Location',
     })
     const [generateForm, setGenerateForm] = useState(<OutOfLifeCycle {...userForm} />)
 

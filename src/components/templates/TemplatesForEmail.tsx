@@ -17,7 +17,7 @@ Your device is now out of lifecycle, and we need to arrange a suitable time to s
  ${LineBreak}
 ${userForm.switch} Name: ${userForm.oolcDevice} ${LineBreak}
 ${LineBreak}
-To resolve this, could you please advise a time when you can come into the Manukau Civic Building to have your device upgraded? ${LineBreak}
+To resolve this, could you please advise a time when you can come into the ${userForm.location} to have your device upgraded? ${LineBreak}
 Please respond by return email, update the support ticket, or message me on MS Teams to discuss this further. ${LineBreak}
 ${LineBreak}
 I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon. ${LineBreak}
@@ -42,7 +42,7 @@ ${LineBreak}
 Ticket ID: ${userForm.ticket}${LineBreak}
 Description: New, replacement or upgraded ${userForm.switch}${LineBreak}
 ${LineBreak}
-Could we arrange a convenient time for you to visit the Manukau Civic Building so we can proceed with setting up your requested ${userForm.switch}? This process will require the utilization of your credentials and is expected to take approximately 30 to 40 minutes.${LineBreak}
+Could we arrange a convenient time for you to visit the ${userForm.location} so we can proceed with setting up your requested ${userForm.switch}? This process will require the utilization of your credentials and is expected to take approximately 30 to 40 minutes.${LineBreak}
 ${LineBreak}
 I will attempt to contact you again over the next two to three working days. I look forward to speaking with you soon.${LineBreak}
 ${LineBreak}
@@ -86,7 +86,7 @@ export const NewStarterPackage = (userForm: NewStarterProps) => {
     ${LineBreak}
 I hope this message finds you well. ${LineBreak}
 ${LineBreak}
-I am pleased to inform you that the new starter package for ${userForm.user} is ready to be collected on ${userForm.date} from the Manukau Civic Building. ${LineBreak}
+I am pleased to inform you that the new starter package for ${userForm.user} is ready to be collected on ${userForm.date} from the ${userForm.location}. ${LineBreak}
 ${LineBreak}
 Should you have any inquiries or require further assistance, please do not hesitate to reach out.${LineBreak}
 ${LineBreak}

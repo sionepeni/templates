@@ -15,6 +15,18 @@
   top: 0;
 }
 
+.header {
+  width: 90vw;
+  height: fit-content;
+  margin: 1rem;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  gap: 1rem;
+  left: 5vw;
+  top: 0;
+}
+
 .app_buttons {
   border: 1px solid black;
   width: 9rem;
