@@ -1,7 +1,7 @@
 export const listForTicketButtons = [
-    { id: 'Phone Replacement Notes', index: 0 },
-    { id: 'Laptop Replacement Notes', index: 1 },
-    { id: 'Tablet Replacement Notes', index: 2 },
+    { id: 'Phone Replacement Notes', index: 0, value: 'Phone' },
+    { id: 'Laptop Replacement Notes', index: 1, value: 'Laptop' },
+    { id: 'Tablet Replacement Notes', index: 2, value: 'Tablet' },
     { id: 'Account Lockout', index: 3 },
 ]
 

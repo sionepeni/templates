@@ -1,0 +1,1 @@
+export const LineBreak = '%0D%0A'

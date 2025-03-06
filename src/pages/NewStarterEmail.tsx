@@ -1,9 +1,9 @@
 import { useState } from 'preact/hooks';
 import { listForNewStarterInputs } from "../components/List";
 import { NewStarterProps } from "../types/Types";
-import { JSX } from 'preact/jsx-runtime';
-import { NewStarterPackage } from '../components/templates/TemplatesForEmail';
+import { JSX } from 'preact/jsx-runtime'
 import { handleFormDetailsForNewStarters } from '../components/util/HandleForm';
+import { NewStarterPackage } from '../components/templates/New Starter Package Template';
 
 export function NewStarterEmail() {
     const [userForm, setUserForm] = useState<NewStarterProps>({
