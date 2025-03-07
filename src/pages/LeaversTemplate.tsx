@@ -1,6 +1,4 @@
 import { useState } from 'preact/hooks';
-import { JSX } from 'preact/jsx-runtime';
-import { handleFormDetailsForLeavers } from '../components/util/HandleForm';
 import { TemplatesForLeavers } from '../components/templates/Templates For Leavers';
 
 interface LeaverProps {

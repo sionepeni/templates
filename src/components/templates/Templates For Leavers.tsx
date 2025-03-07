@@ -1,6 +1,4 @@
-import { LeaverProps } from "../../types/Types"
 import { Greeting } from "../email fillers/Email Greeting"
-import { LineBreak } from "../email fillers/Email Linebreak"
 import { HandleEmailAddress } from "../util/HandleEmailFunctions"
 
 interface LeaverProps2 {
