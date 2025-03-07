@@ -1,4 +1,4 @@
-import { DetailProps, EmailProps } from "../../types/Types"
+import { DetailProps } from "../../types/Types"
 import { HandleEmailAddress } from "../email fillers/Email Address Handler"
 import { Greeting } from "../email fillers/Email Greeting"
 import { LineBreak } from "../email fillers/Email Linebreak"
