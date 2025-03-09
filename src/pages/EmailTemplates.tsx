@@ -2,7 +2,7 @@ import { useState, useEffect } from 'preact/hooks';
 import { listForEmailButtons, listForEmailInputs } from "../components/List";
 import { EmailProps } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
-import { handleFormDetailsForEmails } from '../components/util/HandleForm';
+import { handleFormDetailsForEmails } from '../components/util/HandleForm2';
 import { OutOfLifeCycle } from '../components/templates/Out Of Life Cycle Template';
 import { DeviceUpgrade } from '../components/templates/Device Upgrade Template';
 
@@ -26,7 +26,6 @@ export function EmailTemplates() {
     const handleFormShown = (phrase: string) => {
         if (phrase === "Out of life cycle Email") return setGenerateForm(<OutOfLifeCycle {...userForm} />)
         if (phrase === "New, replacement Email") return setGenerateForm(<DeviceUpgrade {...userForm} />)
-        // if (phrase === "Incident Email") return setGenerateForm(<Incident {...userForm} />)
     }
 
     useEffect(() => {

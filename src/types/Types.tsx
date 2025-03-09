@@ -47,14 +47,6 @@ export type LeaverProps = {
     mobile: string,
 }
 
-export type NewStarterProps = {
-    supervisor: string,
-    user: string,
-    ticket: string,
-    date: string,
-    location: string,
-}
-
 export type TicketProps = {
     oldDevice: string,
     newDevice: string,

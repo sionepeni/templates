@@ -3,7 +3,6 @@ import { JSX } from "preact/jsx-runtime"
 import { TicketNotes } from "../../pages/TicketNotes"
 import { EmailTemplates } from "../../pages/EmailTemplates"
 import { LeaversTemplates } from "../../pages/LeaversTemplate"
-import { NewStarterEmail } from "../../pages/NewStarterEmail"
 
 export const Content = ({selectedValue}: any) => {
 
@@ -17,7 +16,6 @@ export const Content = ({selectedValue}: any) => {
         if (e === '1') return setFormToRender(<TicketNotes />)
             if (e === '2') return setFormToRender(<EmailTemplates />)
             if (e === '3') return setFormToRender(<LeaversTemplates />)
-            if (e === '4') return setFormToRender(<NewStarterEmail />)
     }
 
     return(

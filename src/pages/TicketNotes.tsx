@@ -3,7 +3,7 @@ import { listForTicketButtons, listForTicketInputs } from "../components/List";
 import { TicketProps } from "../types/Types";
 import { JSX } from 'preact/jsx-runtime';
 import { AccountLockout, LaptopReplacementSummary, PhoneReplacementSummary, TabletReplacementSummary } from '../components/templates/Ticket Note Templates';
-import { handleFormDetailsForTickets } from '../components/util/HandleForm';
+import { handleFormDetailsForTickets } from '../components/util/HandleForm2';
 
 
 export function TicketNotes() {
