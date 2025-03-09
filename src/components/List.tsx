@@ -35,5 +35,4 @@ export const listForAppButtons = [
     { text: 'Ticket Notes', value: '1' },
     { text: 'Email Templates', value: '2' },
     { text: 'Leavers Template', value: '3' },
-    { text: 'New Starters', value: '4' },
 ]
