@@ -4,23 +4,18 @@ import { TicketNotes } from "../../pages/TicketNotes"
 import { EmailTemplates } from "../../pages/EmailTemplates"
 import { LeaversTemplates } from "../../pages/LeaversTemplate"
 
-export const Content = ({selectedValue}: any) => {
+const componentMap: { [key: string]: JSX.Element } = {
+    '1': <TicketNotes />,
+    '2': <EmailTemplates />,
+    '3': <LeaversTemplates />,
+};
 
-    const [formToRender, setFormToRender] = useState<JSX.Element>(<TicketNotes />)
+export const Content = ({ selectedValue }: { selectedValue: string }) => {
+    const [formToRender, setFormToRender] = useState<JSX.Element>(componentMap['1']);
 
     useEffect(() => {
-    handlePageSelection(selectedValue)
-    }, [selectedValue])
+        setFormToRender(componentMap[selectedValue] || <TicketNotes />);
+    }, [selectedValue]);
 
-    const handlePageSelection = (e: string) =>{
-        if (e === '1') return setFormToRender(<TicketNotes />)
-            if (e === '2') return setFormToRender(<EmailTemplates />)
-            if (e === '3') return setFormToRender(<LeaversTemplates />)
-    }
-
-    return(
-        <>
-        {formToRender}
-        </>
-    )
-}
+    return <>{formToRender}</>;
+};

@@ -1,7 +1,8 @@
-export const HandleEmailAddress = (name: string | undefined) => {
-    if (name === undefined) return
-    const aklc = '@aucklandcouncil.govt.nz'
-    const formattedName = name.replace(/\s+/g, '.')
+export const HandleEmailAddress = (name: string | undefined): string | undefined => {
+    if (!name) return undefined;
 
-    return (formattedName + aklc)
-}
+    const domain = '@aucklandcouncil.govt.nz';
+    const formattedName = name.replace(/\s+/g, '.');
+
+    return `${formattedName}${domain}`;
+};
