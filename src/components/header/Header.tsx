@@ -1,29 +1,28 @@
-import { JSX } from "preact/jsx-runtime"
-import { listForAppButtons } from "../List"
-import { useState } from "preact/hooks"
+import { JSX } from "preact/jsx-runtime";
+import { useState } from "preact/hooks";
+import { listForAppButtons } from "../List";
 
-export const Header = ({selectPageDetails}: any) => {
-    const [buttonIndex, setButtonIndex] = useState<string>('1')
+export const Header = ({ selectPageDetails }: { selectPageDetails: (event: JSX.TargetedEvent<HTMLButtonElement, Event>) => void }) => {
+    const [buttonIndex, setButtonIndex] = useState<string>('1');
 
-    const handleFormSelection = (e: JSX.TargetedEvent<
-        HTMLButtonElement,
-        Event
-    >) => {
-        selectPageDetails(e)
-        if (e.currentTarget.value === '1') return setButtonIndex('1')
-        if (e.currentTarget.value === '2') return setButtonIndex('2')
-        if (e.currentTarget.value === '3') return setButtonIndex('3')
-        if (e.currentTarget.value === '4') return setButtonIndex('4')
-    }
+    const handleFormSelection = (event: JSX.TargetedEvent<HTMLButtonElement, Event>) => {
+        const { value } = event.currentTarget;
+        selectPageDetails(event);
+        setButtonIndex(value);
+    };
 
-    return(
-    <header class='header'>
-                {listForAppButtons.map((i) => (
-                    <button className={buttonIndex === i.value ? 'selected_app_button' : 'app_buttons'}  value={i.value} onClick={(event: JSX.TargetedEvent<
-                        HTMLButtonElement,
-                        Event
-                    >) => handleFormSelection(event)}>{i.text}</button>
-                ))}
-            </header>
-            )     
-}
+    return (
+        <header className="header">
+            {listForAppButtons.map((button) => (
+                <button
+                    key={button.value}
+                    className={buttonIndex === button.value ? 'selected_app_button' : 'app_buttons'}
+                    value={button.value}
+                    onClick={handleFormSelection}
+                >
+                    {button.text}
+                </button>
+            ))}
+        </header>
+    );
+};
