@@ -34,7 +34,6 @@ export type EmailProps = {
     user: string,
     ticket: string,
     switch: string,
-    issue: string,
     oolcDevice: string,
     location: string,
 }
