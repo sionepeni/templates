@@ -18,7 +18,6 @@ export const listForEmailInputs = [
     { id: "ticket", text: "Ticket" },
     { id: "user", text: "User" },
     { id: "oolcDevice", text: "Device to upgrade" },
-    { id: 'issue', text: 'Issue' },
 ]
 
 export const listForLeaverInputs = [
