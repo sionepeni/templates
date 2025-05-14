@@ -1,18 +1,35 @@
 import { useState } from 'preact/hooks';
 import { TemplatesForLeavers } from '../components/templates/Templates For Leavers';
+import { JSX } from 'preact/jsx-runtime';
 
 interface LeaverProps {
     user: string;
     ticket: string;
     supervisor: string;
-    equipment: { [key: string]: string }; // Dynamic equipment list
+    location: LocationInfo; // Changed from string to LocationInfo
+    equipment: { [key: string]: string };
 }
 
-const listForLeaverInputs = [
-    { id: 'user', text: 'User Name' },
-    { id: 'ticket', text: 'Ticket Number' },
-    { id: 'supervisor', text: 'Supervisor' },
+export interface LocationInfo {
+    label: string;
+    time: string;
+    level: number;
+}
+
+const locations: LocationInfo[] = [
+    { label: "Manukau", time: "8:30am - 10:30am", level: 1 },
+    { label: "Henderson", time: "8:30am - 10:30am", level: 3 },
+    { label: "Albany", time: "8:30am - 10:30am", level: 3 },
+    { label: "Albert St", time: "8am - 12pm", level: 28 },
 ];
+
+
+const listForLeaverInputs = [
+    { id: 'user', text: 'Leaver' },
+    { id: 'ticket', text: 'Ticket Number' },
+    { id: 'supervisor', text: 'Manager' },
+];
+
 
 const permanentEquipmentOptions = ['Laptop', 'Mobile']; // Permanent options
 const additionalEquipmentOptions: string[] = []; // Default additional options
@@ -22,13 +39,24 @@ export function LeaversTemplates() {
         user: "Users Name",
         ticket: "RITM000111",
         supervisor: "Users TL",
-        equipment: {}, // Initialize equipment as an empty object
+        location: locations[0], // Now storing the entire location object
+        equipment: {},
     });
 
     const [selectedEquipment, setSelectedEquipment] = useState<string[]>([]); // Track selected equipment
     const [additionalOptions, setAdditionalOptions] = useState<string[]>(additionalEquipmentOptions); // Dynamic additional options
     const [newEquipmentName, setNewEquipmentName] = useState<string>(''); // Input for new equipment name
 
+    
+
+    const handleLocationChange = (event: JSX.TargetedEvent<HTMLSelectElement, Event>) => {
+        const { value } = event.currentTarget;
+        const selectedLocation = locations.find(loc => loc.label === value);
+        if (selectedLocation) {
+            setUserForm((prevState) => ({ ...prevState, location: selectedLocation }));
+        }
+    };
+    
     const handleFormDetailsForLeavers = (
         event: Event,
         userForm: LeaverProps,
@@ -78,6 +106,7 @@ export function LeaversTemplates() {
         <>
             <div className="options_container">
                 <div className='equipment_container'>
+                    
                         <h4>Select Equipment:</h4>
                     <div className="equipment_selection">
                         {permanentEquipmentOptions.map((option) => (
@@ -117,6 +146,7 @@ export function LeaversTemplates() {
                             />
                             <button className='selected_app_button' onClick={handleAddNewEquipment}>Add</button>
                         </div>
+                    
                     </div>
 
                     <div className="equipment_inputs">
@@ -150,7 +180,22 @@ export function LeaversTemplates() {
                             />
                         </div>
                     ))}
-
+{/* Location Dropdown */}
+<div className="input_field">
+                        Location
+                        <select
+    id="location"
+    value={userForm.location.label} // Now using the label as value
+    onChange={handleLocationChange}
+    style={{ width: "350px" }}
+>
+    {locations.map((location) => (
+        <option key={location.label} value={location.label}>
+            {location.label}
+        </option>
+    ))}
+</select>
+                    </div>
                 </div>
             </div>
 
